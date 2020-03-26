@@ -1,0 +1,324 @@
+<style>
+
+.loading-indicator {
+position: fixed;
+z-index: 999;
+height: 2em;
+width: 2em;
+overflow: show;
+margin: auto;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+}
+
+/* Transparent Overlay */
+.loading-indicator:before {
+content: '';
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.53);
+}
+
+
+  #mydiv {
+    background-image: url('../assets/img/fiche_process/f1.png');
+    background-repeat: no-repeat;
+  background-size: contain;
+  height:100%;
+  width: 100%;
+   margin-left: 20px;
+   
+
+  }
+
+  #mydivi {
+   
+    background-repeat: no-repeat;
+  background-size: contain;
+  height:100px;
+  width: 100%;
+   margin-left: 100px;
+   text-align: center;
+
+  }
+
+  .rectangle {
+    height: 50px;
+    width: 100px;
+    background-color: #555;
+
+
+
+
+  }
+
+  .triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 50px solid #555;
+    border-bottom: 25px solid transparent;
+  }
+
+
+
+</style>
+<div style="width: 100%;margin-bottom: 20px;"><p-breadcrumb [model]="items" [home]="home" [class]="ui-breadcrumb"  ></p-breadcrumb></div>  
+
+<div class="row">
+
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+
+        <h5 class="card-title"></h5>
+        <p class="card-category">
+
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div *ngIf="id=='Management'" id="mydivi" style="background-image: url(../assets/img/fiche_process/Management.PNG);">   <span style="color: #001a60;text-transform: none;margin-top: 160px;"> <b>Purpose</b><br/><b>{{purpose}}</b></span></div>
+          <div  *ngIf="id=='Marketing'" id="mydivi" style="background-image: url(../assets/img/fiche_process/Marketing.PNG);">  <b style="color: #001a60;display: block;">Purpose</b><br/>{{purpose}}</div>
+
+          <div *ngIf="id=='Operation'" id="mydivi" style="background-image: url(../assets/img/fiche_process/operation.PNG);">   <span style="color: #001a60;"> <b>Purpose</b><br/><h6 style="text-transform: lowercase;"><b>{{purpose}}</b></h6></span></div>
+
+          <div *ngIf="id=='Support'" id="mydivi" style="background-image: url(../assets/img/fiche_process/support.PNG);">   <span style="color: #001a60;"> <b>Purpose</b><br/><h6 style="text-transform: lowercase;"><b>{{purpose}}</b></h6></span></div>
+
+<!--           <img *ngIf="id=='Management'" src="../assets/img/fiche_process/Management.PNG" />
+          <img *ngIf="id=='Marketing'" src="../assets/img/fiche_process/Marketing.PNG" />
+          <img *ngIf="id=='Operation'" src="../assets/img/fiche_process/operation.PNG" />
+          <img *ngIf="id=='Support'" src="../assets/img/fiche_process/support.PNG" /> -->
+        </div>
+        <div class="row" style="margin-left: 120px;margin-top: 1.0em;">
+   
+          <div>
+            <img src="../assets/img/fiche_process/f4.PNG" />
+          </div>
+          <div > 
+            <span style="text-align: center;color: #001a60;">
+              <b>Pilot</b>
+              <br /> 
+             {{pilot}}
+            </span>
+            </div>
+            <div class="col"></div>
+         <!-- <div class="col-1"></div>-->
+          <div>
+             <img src="../assets/img/fiche_process/f5.PNG" class="img-fluid" />
+            </div>
+          <div class="col">
+            <b style="color: #001a60;">Indicators<br /> </b>
+            <span *ngFor="let d of indicators" style="color: #001a60;">
+             
+             
+            <a (click)=getIndica(d.id)> - {{d.name}}</a> <br />
+          
+            </span>
+          </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 2.0em;">
+          <div class="col-1">
+            <span style="writing-mode: vertical-rl;text-transform: none;color:#001a60;height: 320px;text-align: center;"><b>Upstream
+              Processes</b> <br/><span *ngFor="let idd of upstreams"><a (click)="goProcess(idd.Abr,idd.family)" >  {{idd.Abr}}  &nbsp;&nbsp; , </a></span></span>
+        </div>
+          <div class="col">
+       
+            <div id="mydiv" class="col">
+             
+                <h5 style="color: #001a60"><b>Inputs</b></h5>
+                <span *ngFor="let d of inputs" style="color: #001a60;">
+             
+             
+                  {{d}}<br/> <br />
+                
+                </span>
+                <!--                 <span style="color: #001a60;text-align: center; line-height: 3;">
+Indicators evaluation
+ results<br />
+Standard requirements <br/>
+Improvement triggers <br/>
+ Customer satisfaction <br />
+evaluation results <br />
+Policy and objectives
+              </span> -->
+            </div>
+          </div>
+          <div class="col">
+
+            <div class="row" *ngFor="let d of proceds" >
+              <div class="col">
+                <button class="btn btn-primary" (click)="showFile(d.id)" style="width: 350px"[style.background-color]="colorCC" [disabled]="!d.tt"><span
+                    style="color: #001a60;"> {{d.name}}</span></button>
+         
+              </div>
+
+            </div>
+   <!--          <div class="row">
+              <div class="col">
+                <button  class="btn btn-primary" (click)="showNoti()"
+                  style="width: 350px" [style.background-color]="colorCC"><span style="color: #001a60;"> Perform internal
+                    audit</span></button>
+              </div>
+
+            </div> -->
+<!--             <div class="row">
+              <div class="col">
+                <button class="btn btn-primary" (click)="showNoti()"
+                  style="background-color: #ffd64e;width: 350px"><span style="color: #001a60;">Manage customer
+                    satisfaction</span></button>
+              </div>
+
+            </div> -->
+<!--             <div class="row">
+              <div class="col">
+                <button class="btn btn-primary" (click)="showNotification('bottom','left')"
+                  style="background-color: #ffd64e;width: 350px;height: auto;"><span style="color: #001a60;">Drive improvement
+                    actions</span></button>
+              </div>
+
+            </div> -->
+<!--             <div class="row">
+              <div class="col">
+                <button class="btn btn-primary" (click)="showNotification('bottom','left')"
+                  style="background-color: #ffd64e;width: 350px"><span style="color: #001a60;;text-transform: lowercase;">Review
+                    processes</span></button>
+              </div>
+
+            </div> -->
+
+
+          </div> 
+  
+<!-- 
+          <div class="col-3">
+            <div class="col" style=" visibility:hidden;"> sffffffffdddddddddfffkjlkmlhhhhhhhhhhhhm </div>
+
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-primary btn-block" (click)="showFile()" style="background-color: #ffd64e;"><span
+                    style="color: #001a60;"> Maintain
+                    management system</span></button>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-primary btn-block" (click)="showNotification('bottom','left')"
+                  style="background-color: #ffd64e;"><span style="color: #001a60;"> Perform internal
+                    audit</span></button>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-primary btn-block" (click)="showNotification('bottom','left')"
+                  style="background-color: #ffd64e"><span style="color: #001a60;">Manage customer
+                    satisfaction</span></button>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-primary btn-block" (click)="showNotification('bottom','left')"
+                  style="background-color: #ffd64e"><span style="color: #001a60;">Drive improvement
+                    actions</span></button>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-primary btn-block" (click)="showNotification('bottom','left')"
+                  style="background-color: #ffd64e"><span style="color: #001a60;">Review
+                    processes</span></button>
+              </div>
+
+            </div>
+
+
+          </div> -->
+          <!--<div class="col-1"></div>-->
+<!--           <div class="col">
+            <div id="mydiv"><span style="color: #001a60;">
+                <h4><b> &nbsp;&nbsp; Outputs</b></h4>
+
+
+                &nbsp;&nbsp; Management system <br />
+                &nbsp;&nbsp; contents<br />
+                <br />
+                &nbsp;&nbsp; Audit plans/reports <br /><br />
+                &nbsp;&nbsp; Processes reviews reports <br /><br />
+                &nbsp;&nbsp; Consolidated customers <br />
+                &nbsp;&nbsp; satisfaction
+
+                <br /><br />
+                &nbsp;&nbsp; Improvement action plans
+              </span>
+            </div>
+
+          </div> -->
+          <div class="col">
+       
+            <div id="mydiv" class="col">
+             
+                <h5 style="color: #001a60"><b>Outputs</b></h5>
+                <span *ngFor="let d of outputs" style="color: #001a60;">
+             
+             
+                  {{d}}<br/> <br />
+                
+                </span>
+            </div>
+          </div>
+
+
+
+          <div class="col-1">
+  <span style="writing-mode: vertical-rl;text-transform: none;color:#001a60;height: 320px;text-align: center;"><b>Downstream
+          Processes</b> <br/><span *ngFor="let idd of downstreams"><a (click)="goProcess(idd.Abr,idd.family)" >  {{idd.Abr}}  &nbsp;&nbsp; ,</a></span></span>
+         
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-5"></div>
+          <div class="col-1"><button type="button" class="btn btn-primary"
+              style="background-image: url(../assets/img/fiche_process/2.PNG);width: 90px;height: 100px;"
+         (click)=goTable(data.family,data.abr,data.id) ></button></div>
+          <div class="col-1">
+        
+            <button type="button" class="btn btn-primary" (click)=getRisk(idp)
+              style="background-image: url(../assets/img/fiche_process/33.PNG);width:87px;height: 110px;margin-top: 1px;"></button>
+          </div>
+          <div class="col-4">
+          </div>
+          <div class="col">
+          </div>
+
+        </div>
+       
+
+     
+        <div class="row">
+          <div class="col-6"><span style="font-size: 12px;color: #a2a2a2;">Restricted - Disclosure or transfer possible upon Sofia Technologies approval</span></div>
+          <div class="col-4"></div>
+
+          <div class="col"><span style="text-align: left;font-size: 12px;color: #a2a2a2;">{{ref}} V{{version}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-indicator" *ngIf="ProgressSpinnerDlg">
+  <p-progressSpinner>please wait loading data</p-progressSpinner>
+  </div>
+<router-outlet></router-outlet>

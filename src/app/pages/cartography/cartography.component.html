@@ -1,0 +1,231 @@
+<style>
+#me {
+writing-mode: vertical-rl;
+-ms-writing-mode: tb-rl;
+}
+
+</style>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col"> <img src="/../assets/img/fiche_process/sofia_logoo.png" /> <span style="text-align: left;font-size: 30px;margin-left: 60px; "><b>Management System Processes Cartography</b></span> </div>  
+   
+        </div>
+      
+        <!-- <h5 class="title"><p-breadcrumb [model]="items" [home]="home"></p-breadcrumb></h5>-->
+       
+        <p class="category"></p>
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="row" style="background-color: #FFD54F;">
+            <div class="col-3"><span style="color: #9c0200;"><b>Management</b></span></div>
+            <div class="row">
+
+
+              <div>
+                <div style=" visibility:hidden;"><button class="btn btn-primary btn-block"
+                style="background-color: #335796;height: 50px;"><span
+                      style="font-family: 'Times New Roman';">Management</span> </button>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row" style="background-color: #FFD54F;text-align: center;">
+            <div class="col-lg-8 ml-auto mr-auto">
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-primary mat-elevation-z24" (click)="goToProductDetails('Management','BM')"
+                    style="background-color: #335796;width: 300px;height: 50px;text-transform: capitalize;border-radius: 20px !important">Business Management</button>
+                </div>
+
+
+                <div class="col">
+
+                </div>
+                <div class="col">
+                  <div><button  class="btn btn-primary mat-elevation-z24"
+                      style="background-color: #335796;width: 300px;height: 50px;margin-bottom: 50px;border-radius: 20px !important;"
+                      (click)="goToProductDetails('Management','IM')"><span style="text-transform: capitalize;">Improvement Management</span></button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+
+          <div class="row" style="background-color: rosybrown;">
+
+
+            <div class="col-3" style="background-color: #A591BD"> <span style="color: #9c0200;"><b>Marketing</b></span>
+            </div>
+
+
+
+
+
+
+            <div class="col-3" style="background-color: #D5EAC8"> <span style="color: #9c0200;"><b>Operation</b></span>
+            </div>
+            <div class="col-3" style="background-color: #D5EAC8">
+
+              <div style="visibility:hidden;"><button pButton type="button" class="ui-button-rounded mat-elevation-z24"
+                  style="background-color: #335796;text-transform: capitalize;" (click)="goToProductDetails('Marketing','IM')"><span
+                    style="text-transform: capitalize;">Global System Implementation</span></button>
+              </div>
+
+              <div class="row">
+
+                <div class="col-1" style="background-color: #D5EAC8"></div>
+                <div class="col-3" style="background-color: #D5EAC8">
+
+                </div>
+                <div class="col-3" style="background-color: #D5EAC8"></div>
+                <div class="col-3" style="background-color: #D5EAC8"></div>
+              </div>
+            </div>
+            <div class="col-1" style="background-color: #D5EAC8">
+            </div>
+            <div class="col-2" style="background-color: #D5EAC8">
+
+            </div>
+          </div>
+
+
+
+
+
+
+          <div class="row">
+
+<div class="col" style="background-color: #A591BD;text-align: center;" >
+          
+              <button class="btn btn-primary mat-elevation-z24"
+                style="background-color: #335796;height: 200px;width: auto;writing-mode: vertical-rl;border-radius: 20px !important;margin-right: 30px;"
+                (click)="goToProductDetails('Marketing','SBD')"   >  
+            <span style="writing-mode: vertical-rl;text-transform: capitalize;">Survery and Business Developement</span>
+              </button>
+          
+          
+              <button class="btn btn-primary mat-elevation-z24"
+                style="background-color: #335796;height: 200px;width: auto;border-radius: 20px !important"   (click)="goToProductDetails('Marketing','SPM')"  >
+                <span style="writing-mode: vertical-rl;text-transform: capitalize;">Sales Planning and
+                  Management</span></button>
+               
+</div>
+
+
+
+
+            <div class="col-1" style="background-color: #D5EAC8">
+              <button class="btn btn-primary mat-elevation-z10"
+           
+                style="background-color: #335796;height: 200px;width: auto;border-radius: 20px !important"   (click)="goToProductDetails('Operation','PPM')"  ><span
+                  style="writing-mode: vertical-rl;text-transform: capitalize;">Project Planning
+                  Management</span></button></div>
+            <div class="col-5" style="background-color: #D5EAC8">
+
+              <div><button class="btn btn-primary btn-block mat-elevation-z9"    (click)="goToProductDetails('Operation','GSI')" 
+                  style="background-color: #335796;text-transform: capitalize;height: 50px;border-radius: 20px !important">Global System Implementation</button>
+              </div>
+
+              <div class="row">
+
+                <div class="col-1" style="background-color: #D5EAC8"></div>
+                <div class="col-3" style="background-color: #D5EAC8">
+                  <button class="btn btn-primary btn-block mat-elevation-z9"   (click)="goToProductDetails('Operation','ELSI')" 
+                    style="background-color: #335796;height:140px;width: auto;border-radius: 20px !important"><span
+                      style="writing-mode: vertical-rl;text-transform: capitalize;">Electronic<br /> System
+                      Implementation</span></button>
+                </div>
+                <div class="col-3" style="background-color: #D5EAC8">
+                   <button class="btn btn-primary btn-block mat-elevation-z9"
+                   (click)="goToProductDetails('operation')" 
+                    style="background-color: #335796;height:140px;width: auto;border-radius: 20px !important;"><span
+                      style="writing-mode: vertical-rl;text-transform: capitalize;" (click)="goToProductDetails('Operation','EMSI')" >Embedded<br /> System
+                      Implementation</span></button></div>
+                <div class="col-3" style="background-color: #D5EAC8">
+                   <button class="btn btn-primary btn-block mat-elevation-z9"
+                   (click)="goToProductDetails('operation')" 
+                    style="background-color: #335796;height:140px;width: auto;border-radius: 20px !important"><span
+                      style="writing-mode: vertical-rl;text-transform: capitalize;"(click)="goToProductDetails('Operation','ISI')" >Information<br /> System
+                      Implementation</span></button></div>
+              </div>
+
+
+
+            </div>
+            <div class="col-1" style="background-color: #D5EAC8">
+              <button class="btn btn-primary btn-block mat-elevation-z9"
+ 
+                style="background-color: #335796;height: 200px;width: auto;;border-radius: 20px !important"><span
+                  style="writing-mode: vertical-rl;text-transform: capitalize;"(click)="goToProductDetails('Operation','DPP')" >Delivery and Post-delivery Activities
+                  Performance</span></button>
+            </div>
+            <div class="col-2" style="background-color: #D5EAC8">
+              <button class="btn btn-primary btn-block mat-elevation-z9" (click)="goToProductDetails('Operation','TAP')" 
+                style="background-color: #335796;text-transform: capitalize;;border-radius: 20px !important">Technical Assisatnce Performance</button>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="row" style="background-color: #BDD7EE">
+            <div class="col"><span style="color: #9c0200;"><b>Support</b></span></div>
+            <div class="col"> <button class="btn btn-primary btn-block mat-elevation-z20"  (click)="goToProductDetails('Support','IISM')" 
+                style="background-color: #335796;text-transform: capitalize;;border-radius: 20px !important"><span>Infrastructure and Information
+                  Security Management</span>
+              </button></div>
+            <div class="col" style=" visibility:hidden;">col</div>
+            <div class="col"> <button class="btn btn-primary btn-block mat-elevation-z10" (click)="goToProductDetails('Support','AFM')" 
+                style="background-color: #335796;text-transform: capitalize;;border-radius: 20px !important">Administrative and Financial Activities
+                Management</button></div>
+          </div>
+          <div class="row" style="background-color: #BDD7EE">
+            <div class="col"> <button class="btn btn-primary btn-block mat-elevation-z20" (click)="goToProductDetails('Support','HRM')" 
+                style="background-color: #335796;text-transform: capitalize;;border-radius: 20px !important">Human Resources Management <br /><span
+                  style=" visibility:hidden;">col</span></button></div>
+            <div class="col" style=" visibility:hidden;">col</div>
+            <div class="col"> <button class="btn btn-primary btn-block mat-elevation-z20" (click)="goToProductDetails('Support','PSQM')" 
+                style="background-color: #335796;text-transform: capitalize;;border-radius: 20px !important">Prodcut and Service Quality
+                Management</button></div>
+            <div class="col" style=" visibility:hidden;">col</div>
+          </div>
+          <div class="row">
+            <div class="col-6"><span style="font-size: 12px;color: #a2a2a2;">Restricted - Disclosure or transfer possible upon Sofia Technologies approval</span></div>
+            <div class="col-4"></div>
+  
+            <div class="col" style="text-align: right"><span style="font-size: 12px;color: #a2a2a2;">{{ref}} V{{version}}</span></div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <router-outlet></router-outlet>
